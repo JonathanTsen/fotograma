@@ -1,0 +1,42 @@
+{
+  "name": "quadro",
+  "productName": "Quadro",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Editor de vídeo desktop com timeline, texto, transições e legendas automáticas.",
+  "main": "./out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "start": "electron-vite preview",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test:e2e": "electron-vite build && playwright test"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "4.3.1",
+    "ffmpeg-static": "5.3.0",
+    "ffprobe-static": "3.1.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@types/node": "22.20.5",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.7",
+    "@vitejs/plugin-react": "5.2.0",
+    "electron": "44.9.0",
+    "electron-vite": "5.0.0",
+    "react": "19.2.9",
+    "react-dom": "19.2.9",
+    "typescript": "5.9.3",
+    "vite": "7.3.7",
+    "zustand": "5.0.15"
+  },
+  "allowScripts": {
+    "esbuild@0.25.12": true,
+    "esbuild@0.28.2": true,
+    "ffmpeg-static@5.3.0": true,
+    "onnxruntime-node@1.30.0": true,
+    "protobufjs@7.6.6": true,
+    "electron@44.9.0": true
+  }
+}
