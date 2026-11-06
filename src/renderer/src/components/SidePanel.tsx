@@ -83,7 +83,7 @@ function AssetCard({ asset, onAdd }: { asset: Asset; onAdd: () => void }): React
       className="asset"
       draggable
       onDragStart={(e) => {
-        e.dataTransfer.setData('application/x-quadro-asset', asset.id)
+        e.dataTransfer.setData('application/x-fotograma-asset', asset.id)
         e.dataTransfer.effectAllowed = 'copy'
       }}
       onDoubleClick={onAdd}

@@ -12,5 +12,5 @@ createRoot(document.getElementById('root')!).render(
 
 if (import.meta.env.DEV) {
   // Facilita testes automatizados e depuração no DevTools.
-  ;(window as unknown as { __quadro: unknown }).__quadro = { useStore }
+  ;(window as unknown as { __fotograma: unknown }).__fotograma = { useStore }
 }

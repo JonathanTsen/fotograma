@@ -22,7 +22,7 @@ const MIME: Record<string, string> = {
   '.webp': 'image/webp', '.gif': 'image/gif', '.bmp': 'image/bmp'
 }
 
-const cacheDir = (): string => join(app.getPath('userData'), 'cache')
+const cacheDir = (): string => join(app.getPath('userData'), 'media-cache')
 const modelsDir = (): string => join(app.getPath('userData'), 'models')
 
 /** Serve arquivos locais com suporte a Range, necessário para busca em vídeos. */
@@ -64,7 +64,7 @@ function createWindow(): BrowserWindow {
     minHeight: 700,
     backgroundColor: '#111214',
     titleBarStyle: 'hiddenInset',
-    title: 'Quadro',
+    title: 'Fotograma',
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
       contextIsolation: true,
@@ -107,8 +107,8 @@ function registerIpc(): void {
     let target = path
     if (!target) {
       const r = await dialog.showSaveDialog(BrowserWindow.fromWebContents(e.sender)!, {
-        defaultPath: 'Projeto.quadro',
-        filters: [{ name: 'Projeto Quadro', extensions: ['quadro'] }]
+        defaultPath: 'Projeto.fotograma',
+        filters: [{ name: 'Projeto Fotograma', extensions: ['fotograma'] }]
       })
       if (r.canceled || !r.filePath) return null
       target = r.filePath
@@ -120,7 +120,7 @@ function registerIpc(): void {
   ipcMain.handle('project:open', async (e) => {
     const r = await dialog.showOpenDialog(BrowserWindow.fromWebContents(e.sender)!, {
       properties: ['openFile'],
-      filters: [{ name: 'Projeto Quadro', extensions: ['quadro'] }]
+      filters: [{ name: 'Projeto Fotograma', extensions: ['fotograma'] }]
     })
     if (r.canceled || !r.filePaths[0]) return null
     return { path: r.filePaths[0], data: await readFile(r.filePaths[0], 'utf8') }

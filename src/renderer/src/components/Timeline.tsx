@@ -152,14 +152,14 @@ export function Timeline(): React.JSX.Element {
   }
 
   const onDrop = (e: React.DragEvent, trackId?: string): void => {
-    const assetId = e.dataTransfer.getData('application/x-quadro-asset')
+    const assetId = e.dataTransfer.getData('application/x-fotograma-asset')
     if (!assetId) return
     e.preventDefault()
     e.stopPropagation()
     st().addAssetClip(assetId, { trackId, start: timeAt(e.clientX) })
   }
   const allowDrop = (e: React.DragEvent): void => {
-    if (e.dataTransfer.types.includes('application/x-quadro-asset')) {
+    if (e.dataTransfer.types.includes('application/x-fotograma-asset')) {
       e.preventDefault()
       e.dataTransfer.dropEffect = 'copy'
     }

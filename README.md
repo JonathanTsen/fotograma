@@ -1,4 +1,4 @@
-# Quadro
+# Fotograma
 
 Editor de vídeo desktop para macOS (Electron + React + TypeScript), com timeline multitrilha, texto animado, transições, filtros e legendas automáticas geradas localmente com Whisper.
 
@@ -12,7 +12,7 @@ Editor de vídeo desktop para macOS (Electron + React + TypeScript), com timelin
 - **Texto:** presets, 17 fontes do sistema, contorno, fundo, sombra e animações de entrada e saída (incluindo máquina de escrever).
 - **Legendas automáticas:** transcreve o áudio da timeline com Whisper (tiny/base/small) em CPU, no próprio computador, e cria uma trilha "Legendas" editável.
 - **Exportação:** MP4 H.264 + AAC em 720p, 1080p ou 4K, de 24 a 60 fps. Os quadros saem do mesmo compositor do preview, então o que você vê é o que é exportado.
-- **Projetos:** salvar e abrir arquivos `.quadro` (JSON que referencia as mídias originais).
+- **Projetos:** salvar e abrir arquivos `.fotograma` (JSON que referencia as mídias originais).
 
 ## Rodando
 
@@ -26,7 +26,7 @@ npm run test:e2e  # build + testes Playwright no app Electron real
 
 Os testes de ponta a ponta (`tests/editor.spec.ts`) geram mídias de teste com FFmpeg e `say`, abrem o app e o operam como um usuário: importam arquivos, arrastam e aparam clipes, usam atalhos, reproduzem, salvam/abrem, exportam e geram legendas. Os diálogos nativos de arquivo são simulados.
 
-Requisitos: Node.js 22 ou mais recente. O FFmpeg e o FFprobe vêm dos pacotes `ffmpeg-static` e `ffprobe-static`. O modelo do Whisper é baixado do Hugging Face na primeira transcrição e fica em `~/Library/Application Support/quadro/models`.
+Requisitos: Node.js 22 ou mais recente. O FFmpeg e o FFprobe vêm dos pacotes `ffmpeg-static` e `ffprobe-static`. O modelo do Whisper é baixado do Hugging Face na primeira transcrição e fica em `~/Library/Application Support/fotograma/models`.
 
 ## Arquitetura
 

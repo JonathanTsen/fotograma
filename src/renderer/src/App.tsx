@@ -20,7 +20,7 @@ async function openProject(): Promise<void> {
   if (!r) return
   try {
     const file = JSON.parse(r.data) as ProjectFile
-    if (file.app !== 'quadro') throw new Error('Arquivo não é um projeto do Quadro.')
+    if (file.app !== 'fotograma') throw new Error('Arquivo não é um projeto do Fotograma.')
     const assets = Object.values(file.assets)
     const exists = await window.api.filesExist(assets.map((a) => a.path))
     const missing = assets.filter((_, i) => !exists[i]).map((a) => a.name)
@@ -48,7 +48,7 @@ export function App(): React.JSX.Element {
   const [dropping, setDropping] = useState(false)
   const dirty = useStore((s) => s.dirty)
   const projectPath = useStore((s) => s.projectPath)
-  const name = projectPath?.split('/').pop()?.replace(/\.quadro$/, '') ?? 'Projeto sem título'
+  const name = projectPath?.split('/').pop()?.replace(/\.fotograma$/, '') ?? 'Projeto sem título'
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent): void => {
@@ -117,7 +117,7 @@ export function App(): React.JSX.Element {
           <span className="logo" aria-hidden>
             <svg viewBox="0 0 24 24" width="18" height="18"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="2.2" /><path d="M10 8.5v7l5.5-3.5z" fill="currentColor" /></svg>
           </span>
-          Quadro
+          Fotograma
         </div>
         <div className="project-name">
           {name}

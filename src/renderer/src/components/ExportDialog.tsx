@@ -33,7 +33,7 @@ export function ExportDialog({ onClose }: { onClose: () => void }): React.JSX.El
   const height = even(settings.height * scale)
 
   const run = async (): Promise<void> => {
-    const base = projectPath?.split('/').pop()?.replace(/\.quadro$/, '') ?? 'Video'
+    const base = projectPath?.split('/').pop()?.replace(/\.fotograma$/, '') ?? 'Video'
     const path = await window.api.pickExportPath(`${base}.mp4`)
     if (!path) return
     useStore.getState().setPlaying(false)

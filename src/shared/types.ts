@@ -154,7 +154,7 @@ export interface Project {
 }
 
 export interface ProjectFile {
-  app: 'quadro'
+  app: 'fotograma'
   version: 1
   project: Project
   assets: Record<string, Asset>

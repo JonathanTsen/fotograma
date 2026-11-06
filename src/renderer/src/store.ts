@@ -404,7 +404,7 @@ export const useStore = create<State>((set, get) => ({
     const s = get()
     const used = new Set(Object.keys(s.assets))
     const file: ProjectFile = {
-      app: 'quadro',
+      app: 'fotograma',
       version: 1,
       project: s.project,
       assets: Object.fromEntries(Object.entries(s.assets).filter(([id]) => used.has(id)))

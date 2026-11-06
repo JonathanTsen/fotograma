@@ -29,7 +29,7 @@ function ff(args: string[]): void {
 }
 
 test.beforeAll(async () => {
-  dir = mkdtempSync(join(tmpdir(), 'quadro-e2e-'))
+  dir = mkdtempSync(join(tmpdir(), 'fotograma-e2e-'))
   ff(['-f', 'lavfi', '-i', 'testsrc2=size=1280x720:rate=30:duration=6', '-f', 'lavfi', '-i', 'sine=frequency=440:duration=6',
     '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-shortest', join(dir, 'clipA.mp4')])
   ff(['-f', 'lavfi', '-i', 'mandelbrot=size=1280x720:rate=30', '-t', '5', '-c:v', 'prores_ks', '-an', join(dir, 'clipB.mov')])
@@ -213,8 +213,8 @@ test('adiciona e edita um texto', async () => {
   await page.locator('.side-tabs button', { hasText: 'Texto' }).click()
   await page.getByRole('button', { name: 'Título', exact: true }).click()
   expect(await lane('text')).toHaveLength(1)
-  await page.locator('.inspector textarea').fill('Olá Quadro')
-  expect((await lane('text'))[0].label).toContain('Olá Quadro')
+  await page.locator('.inspector textarea').fill('Olá Fotograma')
+  expect((await lane('text'))[0].label).toContain('Olá Fotograma')
 })
 
 test('aplica transição e filtro ao clipe selecionado', async () => {
@@ -240,12 +240,12 @@ test('adiciona áudio, salva, cria novo projeto e reabre', async () => {
   expect(await lane('audio')).toHaveLength(1)
 
   const before = await lanes()
-  const projectPath = join(dir, 'teste.quadro')
+  const projectPath = join(dir, 'teste.fotograma')
   await mockSaveDialog(projectPath)
   await page.getByRole('button', { name: 'Salvar' }).click()
   await expect(page.locator('.project-name')).toHaveText('teste')
   expect(existsSync(projectPath)).toBe(true)
-  expect(JSON.parse(readFileSync(projectPath, 'utf8')).app).toBe('quadro')
+  expect(JSON.parse(readFileSync(projectPath, 'utf8')).app).toBe('fotograma')
 
   await page.getByRole('button', { name: 'Novo' }).click()
   expect(await lane('video')).toHaveLength(0)
